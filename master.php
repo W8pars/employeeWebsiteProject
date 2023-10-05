@@ -1,9 +1,7 @@
 <?php
-	error_reporting(E_ALL ^ E_NOTICE);
-	ini_set('session.use_only_cookies', '1');
-	
-	if( isset($_SESSION['username']))
-		echo "Welcome: " . $_SESSION['username'];
+
+session_start();
+
 ?>
 
 <!DOCTYPE html>
@@ -30,19 +28,33 @@
   			</button>
 
 			<div class="collapse navbar-collapse" id="navigationBar">
-				<ul class="navbar-nav mr-auto">
-					<li class="nav-item active">
-						<a class="nav-link" href="index.php">Home </a>
-					</li>
-					<li class="nav-item">
-						<a class="nav-link" href="contactUs.php">Contact Us </a>
-					</li>
-					<li class="nav-item">
-						<a class="nav-link" href="login.php">Login</a>
-					</li>
-					<li class="nav-item">
-						<a class="nav-link" href="registration.php">Registration</a>
-					</li>
+				<div>
+					<ul class="menu-main">
+						<li class="nav-item active">
+							<a class="nav-link" href="index.php">Home </a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="contactUs.php">Contact Us </a>
+						</li>
+				</div>
+				<ul class="menu-member">
+					<?php 
+					// update navbar for logged in user or guest user
+					if(isset($_SESSION["userid"])){
+					?>
+					<li class="nav-item"><a class="nav-link" href="profile.php">Profile: <?php echo $_SESSION["email"]; ?></a></li>
+					<li class="nav-item"><a class="nav-link" href="includes/logout.inc.php" class="header-login-a">Log Out</a></li>
+
+					<?php
+					}
+					else {
+					?>
+						<li class="nav-item"><a class="nav-link" href="registration.php">Registration</a></li>
+						<li class="nav-item"><a class="nav-link" href="login.php">Log In</a></li>
+					<?php
+					}
+					?>
+				</ul>
 			</div>
 		</nav>
 		</div>
