@@ -1,6 +1,7 @@
+<?php 
+include "master.php";
 
-
-<?php require 'master.php';?>
+?>
 
 <div class="container text-center">
 	<h1> Welcome to the Registration Page </h1>
@@ -9,56 +10,50 @@
 <div class="container text-right">
 	<h2> Please Enter Your Information Below to Register.</h2>
 
-<form>
+<form action="includes/register.inc.php" method="post">
 	<div class="form-row">
 		<div class="form-group col-md-6">
-			<label for="userfName">First Name</label>
-			<input type="text" class="form-control" id="userfNameInput" placeholder="First Name">
+			<label for="firstName">First Name</label>
+			<input type="text" class="form-control" id="firstName" name="firstName" placeholder="First Name">
 		</div>
 		<div class="form-group col-md-6">
-			<label for="userlName">Last Name</label>
-			<input type="text" class="form-control" id="userlNameInput" placeholder="Last Name">
+			<label for="lastName">Last Name</label>
+			<input type="text" class="form-control" id="lastName" name="lastName" placeholder="Last Name">
 		</div>
 	</div>
 	<div class="form-row">
 		<div class="form-group col-md-6">
-			<label for="userEmailInput">Email</label>
-			<input type="email" class="form-control" id="userEmailInput" placeholder="Email">
+			<label for="email">Email</label>
+			<input type="email" class="form-control" id="email" name="email" placeholder="Email">
 		</div>
 		<div class="form-group col-md-6">
-			<label for="userPassword">Password</label>
-			<input type="password" class="form-control" id="userPasswordInput" placeholder="Password">
+			<label for="password">Password</label>
+			<input type="password" class="form-control" id="password" name="password" placeholder="Password">
 		</div>
-	</div>
-	<div class= form-group col-md-6">
-		<label for="inputPasswordAgain">Enter Password Again</label>
-		<input type="password" class="form-control" id="userPasswordInput2" placeholder="Enter Password Again">
+		<div class="form-group col-md-6">
+			<label for="username">Username</label>
+			<input type="username" class="form-control" id="username" name="username" placeholder="Username">
+		</div>
 	</div>
 	<div class="form-group">
-		<label for="inputAddress">Address</label>
-		<input type="text" class="form-control" id="inputAddress" placeholder="1234 Main St">
+		<label for="address">Address</label>
+		<input type="text" class="form-control" id="address" name="address" placeholder="1234 Main St">
+	</div>
+    <div class="form-group">
+		<label for="phone">Phone</label>
+		<input type="text" class="form-control" id="phone" name="phone" placeholder="7067895766">
 	</div>
 	<div class="form-group">
-		<label for="inputAddress2">Address 2</label>
-		<input type="text" class="form-control" id="inputAddress2" placeholder="Apartment, studio, or floor">
+		<label for="salary">Yearly Salary</label>
+		<input type="text" class="form-control" id="salary" name="salary" placeholder="100">
 	</div>
-	<div class="form-row">
-		<div class="form-group col-md-6">
-			<label for="inputCity">City</label>
-			<input type="text" class="form-control" id="inputCity">
-		</div>
-	<div class="form-group col-md-4">
-		<label for="inputState">State</label>
-		<select id="inputState" class="form-control">
-			<option selected>Choose...</option>
-			<option>...</option>
-		</select>
+    <div class="form-group">
+		<label for="ssn">SSN</label>
+		<input type="text" class="form-control" id="ssn" name="ssn" placeholder="244444444">
 	</div>
-	<div class="form-group col-md-2">
-		<label for="inputZip">Zip</label>
-		<input type="text" class="form-control" id="inputZip">
-	</div>
-<button type="submit" class="btn btn-primary">Sign in</button>
+    <button type="submit" name="submit" id="submit" class="btn btn-primary"  value="Submit">Submit</button>
 </form>
 </div>
-<?php require 'footer.php';?>
+
+
+<?php include'C:\xampp\htdocs\footer.php';?>
