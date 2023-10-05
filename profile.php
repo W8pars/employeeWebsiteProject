@@ -1,8 +1,36 @@
+<?php
+	include 'master.php';
 
-<?php require 'master.php';?>
+//can include option to include form to submit update queries in future deployment
+?>
 
-<div class="container text-center">
-	<h1> Welcome to the Profile Page </h1>
+
+<div class="jumbotron">
+    <h1>Welcome, <?php echo $_SESSION['email'] ?></h1>
 </div>
 
-<?php require 'footer.php';?>
+<br>
+
+<div class="container">
+	<h2> Display Information Below <h2><br>
+	<div>
+		<form action="" method="post">
+			<button type="submit" name="getProfile" class="btn btn-primary">Display Information</button>
+		</form>
+	</div>
+	<br>
+	<?php 
+	if(isset($_POST['getProfile'])) {
+		require_once "empdb_config.php";
+		require "classes/dbh.classes.php";
+	
+		$db = new Dbmgr();
+		$con = $db->connect();
+		$sql = 'SELECT * FROM tbluser WHERE id = ' . $_SESSION['userid'];
+		$table = $db->executeSelectQuery($con, $sql);
+		echo $table;
+	}
+	?>
+</div>
+<br>
+
